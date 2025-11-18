@@ -15,15 +15,9 @@
 #SBATCH --exclude=u22g03 #This node has a failing GPU and shouldn't be used
 
 export OMP_NUM_THREADS=24 #must match --cpus-per-task
-
-module load python
+nvidia-smi
 echo 'Python loaded'
 
-# !!!!!!!! MUST REPLACE WITH THE CORRECT PATH TO YOUR conda.sh FILE, IF USING YOUR OWN ENVIRONMENT !!!!!!!!
-source /scratch3/BMC/wrfruc/aschein/miniconda/etc/profile.d/conda.sh #example path, to my conda.sh file - yours depends on your python install
-
-
-conda activate /scratch3/BMC/wrfruc/aschein/miniconda/envs/ML_environment #replace with your working environment, if not using this default one
-
+source /scratch3/BMC/wrfruc/gge/AI/ai4da/load_ai4da.sh 
 srun python3 -u model_training.py
 
