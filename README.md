@@ -20,15 +20,15 @@ Ignore the following `PermissionError`:
 ```
 PermissionError: [Errno 13] Permission denied: '/scratch3/BMC/wrfruc/aschein/Train_Test_Files/train_urma_alltimes_CONUS_t2m.grib2.5b7b6.idx'
 ```
-It just means that ecCodes cannot update the exsiting idx file which is not needed and this does not affect the training process.
+It just means that ecCodes cannot update the exsiting idx file, which is not needed and these "errors" do not affect the training process.
 
 ### 3. View the trained model
 This step will need to set up the Jupyter Lab over SSH on Ursa.    
-[This wiki](https://github.com/pyDAmonitor/pyDAmonitor/wiki/Use-Jupyter-Lab-over-SSH-on-Ursa,-Hera,-Jet,-Gaea) can be referred as to how to correctly set up Jupyter Lab.     
+[This wiki](https://github.com/pyDAmonitor/pyDAmonitor/wiki/Use-Jupyter-Lab-over-SSH-on-Ursa,-Hera,-Jet,-Gaea) can be referred to for how to correctly set up Jupyter Lab.     
 The following summarizes the steps for this demo:
 #### 3.1. login to Ursa using port forwarding
 `ssh -X -L40894:localhost:40894 First.Last@gaea-rsa.boulder.rdhpcs.noaa.gov`  # replace `40894` with your own local port number
-#### 3.2.  Request interactive session on GPU nodes
+#### 3.2.  Request an interactive session on GPU nodes
 ```
 account=wrfruc   # gpu-wizard
 QoS=gpuwf        # gpu
