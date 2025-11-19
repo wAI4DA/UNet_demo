@@ -19,4 +19,4 @@ echo "start at $(date)"
 source /scratch3/BMC/wrfruc/gge/AI/ai4da/load_ai4da.sh 
 srun python3 -u model_training.py
 
-ech "finish at $(date)"
+echo "finish at $(date)"
