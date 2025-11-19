@@ -205,6 +205,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-JOB_LOG_UNet_training_*.out
+JOB_LOG*
 Trained_models/*
 training_log_*

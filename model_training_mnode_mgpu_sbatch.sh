@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --account gpu-wizard #Replace with whatever your GPU project is, if not gpu-wizard
-#SBATCH -t 02:00:00 #Change if more time is needed
+#SBATCH -t 03:00:00 #Change if more time is needed
 #SBATCH -J mnmg_UNet_training
 #SBATCH -o JOB_LOG_%x_%J.out
 
@@ -13,7 +13,6 @@
 #SBATCH --gres=gpu:2                 # 2 GPUs per node
 # NO --gpus-per-task - let all GPUs be visible to the launcher task
 
-# --exclude=u22g03 #This node has a failing GPU and shouldn't be used
 #SBATCH --export=ALL
 
 echo "Starting job"
