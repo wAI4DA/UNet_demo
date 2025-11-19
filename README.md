@@ -32,25 +32,29 @@ The following summarizes the steps for this demo:
 ```
 account=wrfruc   # gpu-wizard
 QoS=gpuwf        # gpu
-salloc -A ${account}  -t 3:00:00 -p u1-h100 --mem=0 -q ${QoS}  -N 1 -n 24 --gres=gpu:h100:2
+salloc -A ${account}  -t 4:00:00 -p u1-h100 --mem=0 -q ${QoS}  -N 1 -n 24 --gres=gpu:h100:2 --mail-type=BEGIN --mail-user=Guoqing.Ge@noaa.gov
+      # Replace with your own email so that you will get an email notification when a GPU node is allocated, which will take quite a while
 ```
 When allocated, write down the host name
-or run `hostname` and write down the output, such as `u20g01`
+or run `hostname` and write down the output, such as `u20g01`, which will be used in step 3.4
 #### 3.3. start JupyterLab on the GPU node
 ```
-wget https://raw.githubusercontent.com/wAI4DA/python_env_ai4da/refs/heads/main/load_ai4da.sh
-source load_ai4da.sh
+source /scratch3/BMC/wrfruc/gge/AI/ai4da/load_ai4da.sh
 jupyter lab --no-browser --port=8820   # change the port number as each user needs to use a different port number
-                                       # check the final port number the system allocates as the request one may not be available
+                                       # check the final port number the system allocates as it may not be your requested number
 ```
 #### 3.4.  Connect the Ursa front node port to the GPU node port
-Connect to an Ursa front node in a new terminal and then run the following command:    
+Start a new terminal windown, connect to Ursa, and then run the following command:    
 `ssh -L 8820:localhost:8820 u20g01`    # replace `8820` and `u20g01` with your situation    
 
 #### 3.5. Connect to the Jupyter Lab server from your local terminal
 `ssh -N -f -p 40894 -L 8820:localhost:8820 First.Last@localhost`    # replace `40894` and `8820` with your situation    
+No output if succeeded, but will get errors if failed.
 
 #### 3.6. Open a browser and enter the URL address outputted in step 3.3
-eg: `http://localhost:8806/?token=95fa2d9543d9acd01e8c3c9c82ff6b2cd8df3cd341c53ad6`    
+eg: `http://localhost:8820/?token=95fa2d9543d9acd01e8c3c9c82ff6b2cd8df3cd341c53ad6`    
 
 #### 3.7.  Open UNet_viewing.ipynb
+You may want to change `filename` to your trained model.     
+Note: need to remove the file name suffix `.pt`.    
+eg: `filename = f"residual_attn_CONUS_BS360_NE25_tD_pred(t2m)_targ(t2m)"`
