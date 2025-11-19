@@ -6,7 +6,7 @@ git clone https://github.com/wAI4DA/UNet_demo.git
 ```
 ### 2. Train the model
 ```
-cd UNet-demo
+cd UNet_demo
 vi model_training_sbatch.sh
     # most folks cannot access the gpu QoS, so change gpu-wizard to a normal account,
     # such as wrfruc, zrtrr, etc, and change "#SBATCH -q gpu" to "#SBATCH -q gpuwf"
