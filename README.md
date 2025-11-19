@@ -7,12 +7,12 @@ git clone https://github.com/wAI4DA/UNet_demo.git
 ### 2. Train the model
 ```
 cd UNet-demo
-vi model_training_sbatch
+vi model_training_sbatch.sh
     # most folks cannot access the gpu QoS, so change gpu-wizard to a normal account,
     # such as wrfruc, zrtrr, etc, and change "#SBATCH -q gpu" to "#SBATCH -q gpuwf"
-sbatch model_training_sbatch
+sbatch model_training_sbatch.sh
 ```
-Once the job is running, you will see two output files as follows:
+Once the job runs, you will see two output files as follows:
 - `training_log_BS360_NE25.txt`: epochs, loss, and time per epoch
 - `JOB_LOG_UNet_training_5473835.out`: job output, including the batch progresses in each epoch    
 
@@ -23,9 +23,9 @@ PermissionError: [Errno 13] Permission denied: '/scratch3/BMC/wrfruc/aschein/Tra
 It just means that ecCodes cannot update the exsiting idx file, which is not needed and these "errors" do not affect the training process.
 
 ### 3. View the trained model
-This step will need to set up the Jupyter Lab over SSH on Ursa.    
-[This wiki](https://github.com/pyDAmonitor/pyDAmonitor/wiki/Use-Jupyter-Lab-over-SSH-on-Ursa,-Hera,-Jet,-Gaea) can be referred to for how to correctly set up Jupyter Lab.     
-The following summarizes the steps for this demo:
+We will need to set up the Jupyter Lab over SSH on Ursa in order to view the trained model.    
+You are recommeneded to check [this wiki](https://github.com/pyDAmonitor/pyDAmonitor/wiki/Use-Jupyter-Lab-over-SSH-on-Ursa,-Hera,-Jet,-Gaea) on how to correctly set up Jupyter Lab.     
+The following summarizes the example steps for this UNet_demo:
 #### 3.1. login to Ursa using port forwarding
 `ssh -X -L40894:localhost:40894 First.Last@ursa-rsa.boulder.rdhpcs.noaa.gov`  # replace `40894` with your own local port number
 #### 3.2.  Request an interactive session on GPU nodes
