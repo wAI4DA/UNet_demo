@@ -43,14 +43,14 @@ source load_ai4da.sh
 jupyter lab --no-browser --port=8820   # change the port number as each user needs to use a different port number
                                        # check the final port number the system allocates as the request one may not be available
 ```
-#### 4.4.  Connect the Ursa front node port to the GPU node port
+#### 3.4.  Connect the Ursa front node port to the GPU node port
 Connect to an Ursa front node in a new terminal and then run the following command:    
 `ssh -L 8820:localhost:8820 u20g01`    # replace `8820` and `u20g01` with your situation    
 
-#### 4.5. Connect to the Jupyter Lab server from your local terminal
+#### 3.5. Connect to the Jupyter Lab server from your local terminal
 `ssh -N -f -p 40894 -L 8820:localhost:8820 First.Last@localhost`    # replace `40894` and `8820` with your situation    
 
-#### 4.6. Open a browser and enter the URL address outputted in step 3.3
+#### 3.6. Open a browser and enter the URL address outputted in step 3.3
 eg: `http://localhost:8806/?token=95fa2d9543d9acd01e8c3c9c82ff6b2cd8df3cd341c53ad6`    
 
-#### 4.7.  Open UNet_viewing.ipynb
+#### 3.7.  Open UNet_viewing.ipynb
