@@ -27,7 +27,7 @@ This step will need to set up the Jupyter Lab over SSH on Ursa.
 [This wiki](https://github.com/pyDAmonitor/pyDAmonitor/wiki/Use-Jupyter-Lab-over-SSH-on-Ursa,-Hera,-Jet,-Gaea) can be referred to for how to correctly set up Jupyter Lab.     
 The following summarizes the steps for this demo:
 #### 3.1. login to Ursa using port forwarding
-`ssh -X -L40894:localhost:40894 First.Last@gaea-rsa.boulder.rdhpcs.noaa.gov`  # replace `40894` with your own local port number
+`ssh -X -L40894:localhost:40894 First.Last@ursa-rsa.boulder.rdhpcs.noaa.gov`  # replace `40894` with your own local port number
 #### 3.2.  Request an interactive session on GPU nodes
 ```
 account=wrfruc   # gpu-wizard
