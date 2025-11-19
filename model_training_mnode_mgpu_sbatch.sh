@@ -51,16 +51,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 
 ###############
-
+nvidia-smi
 echo $PWD
-
-module load python
-echo 'Modules loaded'
-
-# !!!!!!!! MUST REPLACE WITH THE CORRECT PATH TO YOUR conda.sh FILE, IF USING YOUR OWN ENVIRONMENT !!!!!!!!
-source /scratch3/BMC/wrfruc/aschein/miniconda/etc/profile.d/conda.sh #example path, to my conda.sh file - yours depends on your python install
-
-conda activate /scratch3/BMC/wrfruc/aschein/miniconda/envs/ML_environment #replace with your working environment, if not using this default one
+source /scratch3/BMC/wrfruc/gge/AI/ai4da/load_ai4da.sh
 
 ###############
 
@@ -84,5 +77,6 @@ srun --ntasks-per-node=2 --mpi=none \
     model_training_mnode_mgpu.py
 
 stopTime=$(date +%s)
+echo "finished at $(date)"
 echo "runTime=$((stopTime-startTime))"
 
